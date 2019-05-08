@@ -1,0 +1,27 @@
+.button {
+  display: inline-block;
+  text-align: center;
+  font-size: 1.2em;
+  width: 6em;
+  height: 2em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 25px;
+  line-height: 1.5em;
+  border: none;
+
+  &:hover {
+    filter: brightness(80%);
+  }
+
+  &.add {
+    float: right;
+    background-color: #a4a4a4;
+    color: white;
+    margin: 1em;
+  }
+
+  &.done {
+    background-color: #fff;
+  }
+}

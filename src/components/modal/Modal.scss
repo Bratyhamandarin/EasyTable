@@ -1,0 +1,27 @@
+.modal {
+  position: absolute;
+  top: 20%;
+  left: 40%;
+  width: 500px;
+  height: 424px;
+  background-color: #6c79e0;
+  border-radius: 25px;
+  text-align: center;
+  color: #ecf3ff;
+
+  .formArea {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+
+    label {
+      font-size: 1.4em;
+      padding-bottom: 15px;
+    }
+
+    input {
+      border-radius: 5px;
+      font-size: 1.2em;
+    }
+  }
+}
