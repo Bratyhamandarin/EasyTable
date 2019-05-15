@@ -1,33 +1,21 @@
-import React, { Component } from "react";
-import "./App.scss";
-import "./components/modal/Modal.scss";
-import "./components/button/Button.scss";
-import "./components/table/Table.scss";
-import { Button } from "./components/button";
-import { Table } from "./components/table";
-import { Modal } from "./components/modal";
-import { removeById, addNewItem } from "./utils/helpers";
+import React, { Component } from 'react';
+
+import './App.scss';
+import { Button } from './components/button';
+import { Table } from './components/table';
+import { Modal } from './components/modal';
+import { removeById, addNewItem, generateId } from './utils';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      list: [],
-      modalActive: false
-    };
-  }
-
-  componentWillMount = () => {
-    let list = JSON.parse(localStorage.getItem("list"));
-    if (list) this.setState({ list });
+  state = {
+    list: JSON.parse(localStorage.getItem('list')),
+    modalActive: false
   };
 
-  handlerShowModal = () => {
-    this.setState({ modalActive: true });
-  };
+  openModal = () => this.setState({ modalActive: true });
 
   addTableItem = formValues => {
+    formValues.id = generateId();
     this.setState({ modalActive: false });
     const newList = addNewItem(this.state.list, formValues);
     this.updateData(newList);
@@ -38,24 +26,26 @@ class App extends Component {
     this.updateData(newList);
   };
 
-  updateData = value => {
-    let list = JSON.stringify(value);
+  updateData = list => {
+    let newList = JSON.stringify(list);
     try {
-      localStorage.setItem("list", list);
+      localStorage.setItem('list', newList);
     } catch (e) {
-      if (e === "QUOTA_EXCEEDED_ERR") {
-        alert("Превышен лимит");
+      if (e === 'QUOTA_EXCEEDED_ERR') {
+        alert('Превышен лимит');
       }
     }
-    this.setState({ list: value });
+    this.setState({ list });
   };
 
   render() {
     return (
-      <div className="App">
-        <Button className="button add" name="Add new" click={this.handlerShowModal} />
-        <Table list={this.state.list} removeTableItem={this.removeTableItem} />
-        {this.state.modalActive ? <Modal addTableItem={this.addTableItem} /> : null}
+      <div className='App'>
+        <Button className='button add' onClick={this.openModal}>
+          Add new
+        </Button>
+        <Table list={this.state.list} onDelete={this.removeTableItem} />
+        {this.state.modalActive ? <Modal onSubmit={this.addTableItem} /> : null}
       </div>
     );
   }

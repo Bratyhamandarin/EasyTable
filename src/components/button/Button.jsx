@@ -1,9 +1,8 @@
-import React from "react";
+import React from 'react';
+import './button.scss';
 
-export const Button = props => {
-  return (
-    <button type={props.type} className={props.className} onClick={props.click} disabled={props.disabled}>
-      {props.name}
-    </button>
-  );
-};
+export const Button = props => (
+  <button type={props.type || 'button'} {...props}>
+    {props.children}
+  </button>
+);

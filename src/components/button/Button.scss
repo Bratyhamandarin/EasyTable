@@ -6,7 +6,7 @@
   height: 2em;
   cursor: pointer;
   transition: all 0.3s ease;
-  border-radius: 25px;
+  border-radius: 1em;
   line-height: 1.5em;
   border: none;
 
@@ -23,5 +23,22 @@
 
   &.done {
     background-color: #fff;
+  }
+
+  &.delete {
+    padding: 0;
+    height: 1.5em;
+    border-radius: 0;
+    border-top-left-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
+    width: 0em;
+    flex-basis: 0;
+    background-color: #b22953;
+    color: white;
+    transition: flex-basis 0.3s ease;
+
+    &.open {
+      flex-basis: 10%;
+    }
   }
 }

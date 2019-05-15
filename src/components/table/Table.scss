@@ -18,7 +18,7 @@
 
     height: 2em;
     line-height: 2em;
-    border-bottom: 1px solid #f7f7f7;
+    border-bottom: 0.1em solid #f7f7f7;
 
     transition: background-color 0.2s ease;
 
@@ -33,27 +33,13 @@
       height: 2.5em;
       line-height: 2.5em;
       color: #ecf3ff;
-      border-top-left-radius: 15px;
-      border-top-right-radius: 15px;
+      border-top-left-radius: 1em;
+      border-top-right-radius: 1em;
       cursor: default;
     }
 
     &:not(:first-child):hover {
       background-color: #edecff;
-    }
-  }
-
-  .delete {
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    width: 0em;
-    flex-basis: 0;
-    background-color: #b22953;
-    color: white;
-    transition: flex-basis 0.3s ease;
-
-    &.open {
-      flex-basis: 10%;
     }
   }
 }
