@@ -2,12 +2,6 @@ import React, { Component } from 'react';
 
 import { Button } from '../button';
 
-const Delete = ({ click, name, shown }) => (
-  <div className={`delete ${shown ? 'open' : ''}`} name={name} onClick={click}>
-    Delete
-  </div>
-);
-
 export class Row extends Component {
   state = { deleteActive: false };
 
@@ -23,7 +17,6 @@ export class Row extends Component {
         <div className='table__row--age'>{age}</div>
         <div className='table__row--job'>{job}</div>
         <div className='table__row--location'>{location}</div>
-        {/* <Delete click={this.handleDelete} data='delete' name='delete' shown={this.state.deleteActive} /> */}
         <Button onClick={this.handleDelete} className={`button delete ${this.state.deleteActive ? 'open' : ''}`}>
           delete
         </Button>
