@@ -1,0 +1,45 @@
+.table {
+  width: 100%;
+  height: auto;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__row {
+    display: flex;
+    justify-content: left;
+    width: 100%;
+    flex-direction: row;
+    cursor: pointer;
+    position: relative;
+
+    height: 2em;
+    line-height: 2em;
+    border-bottom: 0.1em solid #f7f7f7;
+
+    transition: background-color 0.2s ease;
+
+    div {
+      flex-basis: 25%;
+      text-align: center;
+    }
+
+    &:first-child {
+      border: none;
+      background-color: #6c79e0;
+      height: 2.5em;
+      line-height: 2.5em;
+      color: #ecf3ff;
+      border-top-left-radius: 1em;
+      border-top-right-radius: 1em;
+      cursor: default;
+    }
+
+    &:not(:first-child):hover {
+      background-color: #edecff;
+    }
+  }
+}
